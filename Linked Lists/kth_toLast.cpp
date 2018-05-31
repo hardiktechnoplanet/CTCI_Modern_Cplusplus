@@ -44,27 +44,22 @@ void Print()
  * @return return the ptr2 data value
  */
  
-int list_partition(size_t x)
+void kthToLast(size_t k)
 {
-	auto front=head;
-	auto back=head;
+	auto ptr1=head;
+	auto ptr2=head;
 	
-	while(head!=NULL)
+	//move ptr1 to the kth node
+	for(size_t i=0;i<k;++i)
+	ptr1=ptr1->next;
+	
+	/*Move them at the same pace. When p1 hits the end, p2 will be at the right element*/
+	while(ptr1!=NULL)
 	{
-		if(head->data<x)
-		{
-			node->next=front;
-			head=front;
-		}
-		else
-		{
-			back->next=head;
-			back=head;
-		}
-		head=head->next;
+		ptr1=ptr1->next;
+		ptr2=ptr2->next;
 	}
-	back->next=NULL;
-	return front;
+	cout<<ptr2->data;
 }
 	
 	
@@ -98,8 +93,7 @@ int main(int argc, char** argv) {
 	cout<<"the entered linked list is: "<<"\t";
 	Print();
 	
-	cout<<"list after partition: "<<list_partition(4)<<endl;
-	Print();
+	kthToLast(4);
 	
    	return 0;
 }
