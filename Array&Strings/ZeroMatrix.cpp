@@ -65,14 +65,16 @@ void zeroMatrix(vector<vector<int> >& mat)
 	}
 	
 	//make the row 0
-	for(size_t i=0;i<row.size();++i)
+	for(size_t i=0;i<row.size();++i){
 	if(row.at(i))
 	nullifyRow(mat,i,num_rows);
+	}
 	
 	//make the col 0
-	for(size_t i=0;i<col.size();++i)
+	for(size_t i=0;i<col.size();++i){
 	if(col.at(i))
 	nullifyCol(mat,i,num_cols);
+	}
 }
 
 int main(int argc, char** argv) {
